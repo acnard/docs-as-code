@@ -170,13 +170,83 @@ at the top-level (same as the README.md file) I have to create a file called .gi
 site/
 ```
 
-### copy the yml config file and docs folder structure in
+### add the yml config file and docs folder structure to the repo
 
-now I can copy in my mkdocs project basically (for now I will not copy in the sites folder)
+now I can copy in my mkdocs project basically (for now I will not copy in the sites folder). So now it looks like this (with the files copied in from the mkdoc project highlighted in yellow):
+<img src="image-20220116190717039.png" alt="image-20220116190717039" style="zoom:67%;" />
 
-## appendix - good practices for markdown files
+if I do a `git status` it tells me that the files I've copied in are untracked: 
+
+<img src="image-20220116190916107.png" alt="image-20220116190916107" style="zoom:67%;" />
+
+These are all things I want to track so I can do:
+
+```
+git add -A
+```
+
+Then if I do another 
+
+```
+git status
+```
+
+it shows me that all the new stuff needs to be committed
+
+<img src="image-20220116191125595.png" alt="image-20220116191125595" style="zoom:67%;" />
+
+Now I can do a 
+
+```
+git commit
+git push
+```
+
+ to get all this up onto github
+
+<img src="image-20220116191830624.png" alt="image-20220116191830624" style="zoom: 50%;" />
+
+### check that site folder is properly ignored
+
+for test purposes, let's create a **site** subfolder and put some files and subfolders in it: 
+
+ <img src="image-20220116192158851.png" alt="image-20220116192158851" style="zoom: 67%;" />
+
+and see what happens on `git status`:
+
+in fact it does not tell me about these new untracked files (because they are not meant to be tracked)
+
+<img src="image-20220116192401630.png" alt="image-20220116192401630" style="zoom:50%;" />
+
+to check which files are being ignored we can try the command:
+
+```
+git status --ignored --untracked-files=all
+```
+
+and it does indeed say it's ignoring all the files in site (and in its subdirectories):
+
+<img src="image-20220116192651581.png" alt="image-20220116192651581" style="zoom: 67%;" />
+
+## appendix:
+
+### good practices for markdown files
 
 There should be only one top-level heading (#) in each markdown file
 
- 
+### summary of git workflow with branching
+
+1. `git fetch` to check if there is anything updated on origin (if there is nothing, the command gives no output).
+2. `git pull` to retrieve changes from origin (remote repository) 
+3. when you start working on a feature, do `git branch branchname`  to create a branche and then `git checkout branchname` to switch to that branch.
+   - You can do `git branch` to see a list of all the branches, the current one will have a star next to it.
+4. Start making your changes on the branch. 
+   - At any time, you can switch back to the main branch with `git checkout main` and it will put your files back exactly as they were before you started making those changes.
+   - Add and commit your changes to the branch as usual, with `git add -A` followed by `git commit`.
+5. When the changes in the branch are done (and all committed), and you want to merge them into the main stream: 
+   - first do `git checkout main` to return to the main branch
+   - then do `git  merge branchname` : this will bring the changes you made on the branch into your main stream.
+6. Do a `git push` to update the remote. Note that the remote will not know about the branch you created as this was created and merged on the local machine before doing any push. I suppose it would know about it if you did a push while the branch was still unmerged. 
+
+
 
