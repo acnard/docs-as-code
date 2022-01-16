@@ -1,0 +1,9 @@
+site_name: docs as code setup notes
+use_directory_urls: false
+
+theme: 
+    name: readthedocs
+    collapse_navigation: false
+
+extra_css:
+    - css/extra.css
