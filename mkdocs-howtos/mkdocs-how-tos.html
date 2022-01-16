@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>mkdocs how-tos - docs as code setup notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "mkdocs how-tos";
+    var mkdocs_page_input_path = "mkdocs-howtos\\mkdocs-how-tos.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> docs as code setup notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to MkDocs</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../index.html#commands">Commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../index.html#project-layout">Project layout</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Mkdocs howtos</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">another file in subfolder</a>
+    <ul>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="mkdocs-how-tos.html">mkdocs how-tos</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installing-mkdocs">installing mkdocs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-a-mkdocs-project">creating a mkdocs project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#yaml-config-file-settings-initial-ones">yaml config file settings (initial ones)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-content-subfolders-to-the-project">adding content subfolders to the project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#improving-the-navigation-pane">improving the navigation pane</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#set-collapse_navigation-to-false">set collapse_navigation to false</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-custom-css">add custom css</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#building-the-site">building the site</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deploying-to-github">deploying to github</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#create-the-empty-repo-on-github">create the empty repo on github</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#clone-the-new-repo-to-local-machine">clone the new repo to local machine</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gitignore-the-site-folder">gitignore the site folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-the-yml-config-file-and-docs-folder-structure-to-the-repo">add the yml config file and docs folder structure to the repo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#check-that-site-folder-is-properly-ignored">check that site folder is properly ignored</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#appendix">appendix:</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#good-practices-for-markdown-files">good practices for markdown files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-of-git-workflow-with-branching">summary of git workflow with branching</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">docs as code setup notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Mkdocs howtos &raquo;</li>
+        
+      
+    
+    <li>mkdocs how-tos</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mkdocs-how-tos">mkdocs how-tos</h1>
+<h2 id="installing-mkdocs">installing mkdocs</h2>
+<p>on Dell pc, where python was installed by itself, and available from a general command prompt, just installed it with <code>pip install mkdocs</code> </p>
+<p>on Lenovo, where python was installed via anaconda, and available only from an anaconda prompt,  used an anaconda prompt (base environment) and the command (taken from https://anaconda.org/conda-forge/mkdocs):</p>
+<pre><code>conda install -c conda-forge mkdocs
+</code></pre>
+<p>It gave me the usual info about what was going to happen, and I told it to proceed: 
+<img src="image-20220116153606680.png" alt="image-20220116153606680" style="zoom:67%;" /></p>
+<p>one that was done, I could see with <code>mkdocs --version</code> that it had been installed:</p>
+<p><img src="image-20220116153817141.png" alt="image-20220116153817141" style="zoom:67%;" /></p>
+<h2 id="creating-a-mkdocs-project">creating a mkdocs project</h2>
+<p>next (always in the anaconda prompt) I cd'ed into the folder under which I want to create my mkdocs project, which is called docs_as_code:</p>
+<p><img src="image-20220116154024698.png" alt="image-20220116154024698" style="zoom:67%;" /></p>
+<p>now with <code>mkdocs new setup-notes</code> I can create my project:
+(nb if I am already in my desired project folder I can also use <code>mkdocs new .</code>
+this will create the yml file directly inside the current folder and the docs folder underneath it)</p>
+<p>This creates a folder called <code>setup-notes</code> with directly inside it the yml configuration file and the docs folder where all the markdown source files will go.</p>
+<p><img alt="image-20220116154536616" src="image-20220116154536616.png" /> </p>
+<p>Now, if I cd into the setup-notes folder, I can issue the <code>mkdocs serve</code> command (nb in this example all is being done in an anaconda prompt, but if python and mkdocs were installed differently it would be done under a regular command prompt):</p>
+<p><img src="image-20220116155058388.png" alt="image-20220116155058388" style="zoom:67%;" /></p>
+<p>and opening up that url will show a preview of what the site would look like (for now just with the contents of the default <strong>index.md</strong> file located under <strong>docs</strong>).</p>
+<p><img src="image-20220116155306902.png" alt="image-20220116155306902" style="zoom: 50%;" /></p>
+<h2 id="yaml-config-file-settings-initial-ones">yaml config file settings (initial ones)</h2>
+<p>by default the mkdocs.yml file contains only the mandatory site_ _name setting: 
+<img src="image-20220116160148187.png" alt="image-20220116160148187" style="zoom:67%;" /></p>
+<p>use of the config file is documented fully at https://www.mkdocs.org/user-guide/configuration/ </p>
+<p>however there are  a few settings it is important to configure for my particular setup:</p>
+<ul>
+<li><strong>use_directory_urls</strong> should be set to <em>false</em>: the default true setting does not play well with image paths in markdown notes </li>
+<li>the theme should be changed to <em>readthedocs</em> (rather than the default mkdocs)</li>
+</ul>
+<p><img src="image-20220116160924818.png" alt="image-20220116160924818" style="zoom: 50%;" /></p>
+<p>The reason is that readthedocs has a nice navigation pane on the left.</p>
+<p><img src="image-20220116161259869.png" alt="image-20220116161259869" style="zoom: 50%;" /></p>
+<h2 id="adding-content-subfolders-to-the-project">adding content subfolders to the project</h2>
+<p>at present the only content my new project has in its docs folder is the default index.md file. But for example I could copy the folder of these how-to notes into the docs folder of the empty project, to obtain the following result: </p>
+<p><img src="image-20220116163644026.png" alt="image-20220116163644026" style="zoom:50%;" /></p>
+<p>now, in addition to the index.md file, the docs folder contains a subfolder, which in its turn contains a markdown file and some image files (these notes).</p>
+<p>Now, when I do <code>mkdocs serve</code> the navigation pane shows me not just "Welcome to MkDocs" (the default index.md file) but also the mkdocs how-tos. This is the result you get without any <code>nav</code> settings in the <code>yaml</code>  config file, just with autodiscovery of all the .md files in the docs tree. The all caps MKDOCS HOWTOS is not clickable, it  just corresponds to the subfolder. The lowercase <strong>mkdocs how-tos</strong> corresponds to the actual .md file in the folder.  </p>
+<p>In any case, you can control what appears in the left-hand menu with the nav settings, this is just to show what happens automatically. In summary:</p>
+<ul>
+<li>each subfolder under docs turns into an all-caps, unclickable heading in the navigation pane. </li>
+<li>each markdown file appears in the navigation pane grouped under its appropriate subfolder heading, and with a clickable hierarchical structure that corresponds to the level 1 (#) heading on top (not the md filename) and the lower level headings (##, ### etc) under it.</li>
+</ul>
+<p><img src="image-20220116163859449.png" alt="image-20220116163859449" style="zoom: 50%;" /></p>
+<h2 id="improving-the-navigation-pane">improving the navigation pane</h2>
+<h3 id="set-collapse_navigation-to-false">set collapse_navigation to false</h3>
+<p>Notice how, by default, you can only see the inner structure of the currently selected item in the navigation pane: 
+<img src="image-20220116165502247.png" alt="image-20220116165502247" style="zoom: 50%;" /></p>
+<p>You can change this behavior by setting <strong>collapse_navigation</strong> to <strong>False</strong>. (nb this is a subsetting for the theme, not a top-level setting like site_name): </p>
+<pre><code class="language-yaml">site_name: docs as code setup notes
+use_directory_urls: false
+
+theme: 
+    name: readthedocs
+    collapse_navigation: false
+</code></pre>
+<p>With collapse navigation set to false, you can expand the internal subheadings of any file in the navigation bar, not just the currently selected one: </p>
+<p><img src="image-20220116170819508.png" alt="image-20220116170819508" style="zoom: 50%;" /></p>
+<h3 id="add-custom-css">add custom css</h3>
+<p>a confusing aspect of this navigation pane is that the items representing the markdown files are not indented relative to the upper-case heading that represents the containing folder .</p>
+<p>To fix this, we can add a <strong>css</strong> subfolder to the <strong>docs</strong> folder that contains a file <strong>extra.css</strong> where we tweak the style as follows: </p>
+<pre><code class="language-css">/* custom css for readthedocs theme navigation sidebar */
+.caption {
+    color:orange;
+    margin-left: -10px;
+}
+</code></pre>
+<p><img src="image-20220116172415822.png" alt="image-20220116172415822" style="zoom: 67%;" /></p>
+<p>And in the yaml file we have to specify that this extra.css exists with:</p>
+<pre><code class="language-yaml">extra_css:
+    - css/extra.css
+</code></pre>
+<p>this lets us achieve a little indent, so the text of the folder name (now orange) is now a little to the left of the text of the markdown files.</p>
+<p><img src="image-20220116173037570.png" alt="image-20220116173037570" style="zoom:67%;" /></p>
+<h2 id="building-the-site">building the site</h2>
+<p>so far we have only looked at a preview with the <code>mkdocs  serve</code> command.</p>
+<p>we can now use <code>mkdocs build</code> to create the actual html static site. As a result of this command we get a <strong>site</strong> folder added to our project folder: </p>
+<p><img src="image-20220116173946706.png" alt="image-20220116173946706" style="zoom: 67%;" />  </p>
+<p>The folder structure of docs is retained, except that every markdown file now corresponds to an html file (with the same name):</p>
+<h2 id="deploying-to-github">deploying to github</h2>
+<h3 id="create-the-empty-repo-on-github">create the empty repo on github</h3>
+<p>for this purpose, I created a repository on github called docs-as-code (note, with the dashes rather than the underscores) </p>
+<p><img src="image-20220116184429461.png" alt="image-20220116184429461" style="zoom:50%;" /></p>
+<p>I just added a readme file, but apart from that the new repo on github is empty</p>
+<h3 id="clone-the-new-repo-to-local-machine">clone the new repo to local machine</h3>
+<p>on my local machine, I open up a command prompt (regular, not anaconda, since this is for git) in the WebDev folder, where I want to clone the new docs-as-code repo.</p>
+<p><img src="image-20220116184908179.png" alt="image-20220116184908179" style="zoom: 50%;" /></p>
+<pre><code>git clone https://github.com/acnard/docs-as-code.git
+</code></pre>
+<p>as a result of this the remote is now cloned here: 
+<img src="image-20220116185348558.png" alt="image-20220116185348558" style="zoom: 67%;" /></p>
+<p>if I cd into this folder and do <code>git status</code> I get:</p>
+<p><img src="image-20220116185443439.png" alt="image-20220116185443439" style="zoom: 67%;" /></p>
+<h3 id="gitignore-the-site-folder">gitignore the site folder</h3>
+<p>I am going to copy into here the entire mkdocs project I created earlier, but I do not want to source-control anything in the site folder, which is just generated by the mkdocs build process.</p>
+<p>at the top-level (same as the README.md file) I have to create a file called .gitignore with the contents:</p>
+<pre><code>site/
+</code></pre>
+<h3 id="add-the-yml-config-file-and-docs-folder-structure-to-the-repo">add the yml config file and docs folder structure to the repo</h3>
+<p>now I can copy in my mkdocs project basically (for now I will not copy in the sites folder). So now it looks like this (with the files copied in from the mkdoc project highlighted in yellow):
+<img src="image-20220116190717039.png" alt="image-20220116190717039" style="zoom:67%;" /></p>
+<p>if I do a <code>git status</code> it tells me that the files I've copied in are untracked: </p>
+<p><img src="image-20220116190916107.png" alt="image-20220116190916107" style="zoom:67%;" /></p>
+<p>These are all things I want to track so I can do:</p>
+<pre><code>git add -A
+</code></pre>
+<p>Then if I do another </p>
+<pre><code>git status
+</code></pre>
+<p>it shows me that all the new stuff needs to be committed</p>
+<p><img src="image-20220116191125595.png" alt="image-20220116191125595" style="zoom:67%;" /></p>
+<p>Now I can do a </p>
+<pre><code>git commit
+git push
+</code></pre>
+<p>to get all this up onto github</p>
+<p><img src="image-20220116191830624.png" alt="image-20220116191830624" style="zoom: 50%;" /></p>
+<h3 id="check-that-site-folder-is-properly-ignored">check that site folder is properly ignored</h3>
+<p>for test purposes, let's create a <strong>site</strong> subfolder and put some files and subfolders in it: </p>
+<p><img src="image-20220116192158851.png" alt="image-20220116192158851" style="zoom: 67%;" /></p>
+<p>and see what happens on <code>git status</code>:</p>
+<p>in fact it does not tell me about these new untracked files (because they are not meant to be tracked)</p>
+<p><img src="image-20220116192401630.png" alt="image-20220116192401630" style="zoom:50%;" /></p>
+<p>to check which files are being ignored we can try the command:</p>
+<pre><code>git status --ignored --untracked-files=all
+</code></pre>
+<p>and it does indeed say it's ignoring all the files in site (and in its subdirectories):</p>
+<p><img src="image-20220116192651581.png" alt="image-20220116192651581" style="zoom: 67%;" /></p>
+<h2 id="appendix">appendix:</h2>
+<h3 id="good-practices-for-markdown-files">good practices for markdown files</h3>
+<p>There should be only one top-level heading (#) in each markdown file</p>
+<h3 id="summary-of-git-workflow-with-branching">summary of git workflow with branching</h3>
+<ol>
+<li><code>git fetch</code> to check if there is anything updated on origin (if there is nothing, the command gives no output).</li>
+<li><code>git pull</code> to retrieve changes from origin (remote repository) </li>
+<li>when you start working on a feature, do <code>git branch branchname</code>  to create a branche and then <code>git checkout branchname</code> to switch to that branch.</li>
+<li>You can do <code>git branch</code> to see a list of all the branches, the current one will have a star next to it.</li>
+<li>Start making your changes on the branch. </li>
+<li>At any time, you can switch back to the main branch with <code>git checkout main</code> and it will put your files back exactly as they were before you started making those changes.</li>
+<li>Add and commit your changes to the branch as usual, with <code>git add -A</code> followed by <code>git commit</code>.</li>
+<li>When the changes in the branch are done (and all committed), and you want to merge them into the main stream: </li>
+<li>first do <code>git checkout main</code> to return to the main branch</li>
+<li>then do <code>git  merge branchname</code> : this will bring the changes you made on the branch into your main stream.</li>
+<li>Do a <code>git push</code> to update the remote. Note that the remote will not know about the branch you created as this was created and merged on the local machine before doing any push. I suppose it would know about it if you did a push while the branch was still unmerged. </li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="another file in subfolder"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

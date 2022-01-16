@@ -1,0 +1,9 @@
+h1 {
+    color: steelblue
+}
+
+/* custom css for readthedocs theme navigation sidebar */
+.caption {
+    color:orange;
+    margin-left: -10px;
+}
