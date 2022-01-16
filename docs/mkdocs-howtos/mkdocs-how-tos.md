@@ -228,6 +228,40 @@ and it does indeed say it's ignoring all the files in site (and in its subdirect
 
 <img src="image-20220116192651581.png" alt="image-20220116192651581" style="zoom: 67%;" />
 
+### deploy to github pages
+
+now we are ready to try the command that builds the static site with mkdocs and deploys it automaticlally to github pages...
+
+```
+mkdocs  gh-deploy
+```
+
+![image-20220116200927628](image-20220116200927628.png)
+
+... and there it is!
+
+<img src="image-20220116201129103.png" alt="image-20220116201129103" style="zoom: 50%;" />
+
+IMPORTANT NOTE: to get this to work, you should initially leave github pages *disabled*, as below. Enabling github pages from the repo settings is  only if you are using github's own jekyll site generator (and you would typically choose `main` as the source in this case)
+
+<img src="image-20220116201425360.png" alt="image-20220116201425360" style="zoom: 50%;" />
+
+Once you run `mkdocs gh-deploy`, what happens is that it creates the `gh-pages` branch automatically and also tells  github that you do *not* want to use the jekyll site generator. You end up with a situation like this:
+
+<img src="image-20220116201817745.png" alt="image-20220116201817745" style="zoom: 50%;" />  
+
+## operational workflow
+
+once everything is set up,  the workflow for updating the documentation in this repo is as follows:
+
+- The source files for the documentation are all located in the docs folder of the repo: 
+  <img src="image-20220116202451075.png" alt="image-20220116202451075" style="zoom:50%;" />
+- You can edit them (and commit changes) directly on github's web interface ,  
+  <img src="image-20220116202733403.png" alt="image-20220116202733403" style="zoom: 50%;" />
+- Or you can clone the repo to a local machine and work on the content there with local tools (eg a markdown editor, etc) 
+- In either case it is possible to use the usual git workflow (add, commit, push etcetera), with branching and merging as required.
+- To make the changes visible in the deployed site you need to re-run the  `mkdocs  gh-deploy` command (not sure how to do this directly from github.. )
+
 ## appendix:
 
 ### good practices for markdown files
@@ -236,9 +270,11 @@ There should be only one top-level heading (#) in each markdown file
 
 ### summary of git workflow with branching
 
+Note: do not work in the gh-pages branch. This is just for use by the site generator.
+
 1. `git fetch` to check if there is anything updated on origin (if there is nothing, the command gives no output).
 2. `git pull` to retrieve changes from origin (remote repository) 
-3. when you start working on a feature, do `git branch branchname`  to create a branche and then `git checkout branchname` to switch to that branch.
+3. when you start working on a feature, do `git branch branchname`  to create a branch and then `git checkout branchname` to switch to that branch.
    - You can do `git branch` to see a list of all the branches, the current one will have a star next to it.
 4. Start making your changes on the branch. 
    - At any time, you can switch back to the main branch with `git checkout main` and it will put your files back exactly as they were before you started making those changes.
