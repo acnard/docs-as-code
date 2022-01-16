@@ -133,7 +133,7 @@ we can now use `mkdocs build` to create the actual html static site. As a result
 
 The folder structure of docs is retained, except that every markdown file now corresponds to an html file (with the same name):
 
-## deploying to github
+## initial deployment to github
 
 ### create the empty repo on github
 
@@ -228,7 +228,7 @@ and it does indeed say it's ignoring all the files in site (and in its subdirect
 
 <img src="image-20220116192651581.png" alt="image-20220116192651581" style="zoom: 67%;" />
 
-### deploy to github pages
+### deploy to github pages with gh-deploy
 
 now we are ready to try the command that builds the static site with mkdocs and deploys it automaticlally to github pages...
 
@@ -249,6 +249,12 @@ IMPORTANT NOTE: to get this to work, you should initially leave github pages *di
 Once you run `mkdocs gh-deploy`, what happens is that it creates the `gh-pages` branch automatically and also tells  github that you do *not* want to use the jekyll site generator. You end up with a situation like this:
 
 <img src="image-20220116201817745.png" alt="image-20220116201817745" style="zoom: 50%;" />  
+
+### automatically update the deployed site on commits or merge to main
+
+Now you can make changes to the documentation, however to make those changes visible in the deployed site,  you still need to re-run the  `mkdocs  gh-deploy` command. This article explains how to set up a github Action to do this automatically:
+
+ https://datamattsson.tumblr.com/post/612351271067893760/the-perfect-documentation-storm
 
 ## operational workflow
 
