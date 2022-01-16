@@ -95,7 +95,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#check-that-site-folder-is-properly-ignored">check that site folder is properly ignored</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deploy-to-github-pages">deploy to github pages</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operational-workflow">operational workflow</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#appendix">appendix:</a>
         <ul>
@@ -274,14 +278,37 @@ git push
 </code></pre>
 <p>and it does indeed say it's ignoring all the files in site (and in its subdirectories):</p>
 <p><img src="image-20220116192651581.png" alt="image-20220116192651581" style="zoom: 67%;" /></p>
+<h3 id="deploy-to-github-pages">deploy to github pages</h3>
+<p>now we are ready to try the command that builds the static site with mkdocs and deploys it automaticlally to github pages...</p>
+<pre><code>mkdocs  gh-deploy
+</code></pre>
+<p><img alt="image-20220116200927628" src="image-20220116200927628.png" /></p>
+<p>... and there it is!</p>
+<p><img src="image-20220116201129103.png" alt="image-20220116201129103" style="zoom: 50%;" /></p>
+<p>IMPORTANT NOTE: to get this to work, you should initially leave github pages <em>disabled</em>, as below. Enabling github pages from the repo settings is  only if you are using github's own jekyll site generator (and you would typically choose <code>main</code> as the source in this case)</p>
+<p><img src="image-20220116201425360.png" alt="image-20220116201425360" style="zoom: 50%;" /></p>
+<p>Once you run <code>mkdocs gh-deploy</code>, what happens is that it creates the <code>gh-pages</code> branch automatically and also tells  github that you do <em>not</em> want to use the jekyll site generator. You end up with a situation like this:</p>
+<p><img src="image-20220116201817745.png" alt="image-20220116201817745" style="zoom: 50%;" />  </p>
+<h2 id="operational-workflow">operational workflow</h2>
+<p>once everything is set up,  the workflow for updating the documentation in this repo is as follows:</p>
+<ul>
+<li>The source files for the documentation are all located in the docs folder of the repo: 
+  <img src="image-20220116202451075.png" alt="image-20220116202451075" style="zoom:50%;" /></li>
+<li>You can edit them (and commit changes) directly on github's web interface ,<br />
+  <img src="image-20220116202733403.png" alt="image-20220116202733403" style="zoom: 50%;" /></li>
+<li>Or you can clone the repo to a local machine and work on the content there with local tools (eg a markdown editor, etc) </li>
+<li>In either case it is possible to use the usual git workflow (add, commit, push etcetera), with branching and merging as required.</li>
+<li>To make the changes visible in the deployed site you need to re-run the  <code>mkdocs  gh-deploy</code> command (not sure how to do this directly from github.. )</li>
+</ul>
 <h2 id="appendix">appendix:</h2>
 <h3 id="good-practices-for-markdown-files">good practices for markdown files</h3>
 <p>There should be only one top-level heading (#) in each markdown file</p>
 <h3 id="summary-of-git-workflow-with-branching">summary of git workflow with branching</h3>
+<p>Note: do not work in the gh-pages branch. This is just for use by the site generator.</p>
 <ol>
 <li><code>git fetch</code> to check if there is anything updated on origin (if there is nothing, the command gives no output).</li>
 <li><code>git pull</code> to retrieve changes from origin (remote repository) </li>
-<li>when you start working on a feature, do <code>git branch branchname</code>  to create a branche and then <code>git checkout branchname</code> to switch to that branch.</li>
+<li>when you start working on a feature, do <code>git branch branchname</code>  to create a branch and then <code>git checkout branchname</code> to switch to that branch.</li>
 <li>You can do <code>git branch</code> to see a list of all the branches, the current one will have a star next to it.</li>
 <li>Start making your changes on the branch. </li>
 <li>At any time, you can switch back to the main branch with <code>git checkout main</code> and it will put your files back exactly as they were before you started making those changes.</li>
