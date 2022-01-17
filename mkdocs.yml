@@ -4,6 +4,19 @@ use_directory_urls: false
 theme: 
     name: readthedocs
     collapse_navigation: false
+    
+# theme: 
+    # name: mkdocs
+    # nav_style: light
+    # navigation_depth: 3
+    # #collapse_navigation: false
 
 extra_css:
     - css/extra.css
+    
+nav:
+    - 'Just a heading':
+        - 'Welcome': 'index.md'
+        - 'MkDocs Setup': 'mkdocs-howtos\mkdocs-how-tos.md'
+    - 'A second heading':
+        - 'Another Document': 'mkdocs-howtos\index.md'
