@@ -1,6 +1,11 @@
 h1 {
     color: steelblue
 }
+/* custom css for makedocs theme to remove grid background image */
+body::before {
+    background-image: none;
+    background-color: ivory;
+}
 
 /* custom css for readthedocs theme navigation sidebar */
 .caption {

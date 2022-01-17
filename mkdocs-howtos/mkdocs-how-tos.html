@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>mkdocs how-tos - docs as code setup notes</title>
+  <title>MkDocs Setup - docs as code setup notes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,7 +19,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "mkdocs how-tos";
+    var mkdocs_page_name = "MkDocs Setup";
     var mkdocs_page_input_path = "mkdocs-howtos\\mkdocs-how-tos.md";
     var mkdocs_page_url = null;
   </script>
@@ -38,7 +38,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="icon icon-home"> docs as code setup notes</a>
+        <a href=".." class="icon icon-home"> docs as code setup notes</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -47,8 +47,9 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to MkDocs</a>
+                <p class="caption"><span class="caption-text">Just a heading</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a>
     <ul>
     <li class="toctree-l2"><a class="reference internal" href="../index.html#commands">Commands</a>
     </li>
@@ -56,16 +57,7 @@
     </li>
     </ul>
                     </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Mkdocs howtos</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="index.html">another file in subfolder</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="index.html#add-a-level-2-heading">add a level 2 heading</a>
-    </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="mkdocs-how-tos.html">mkdocs how-tos</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="mkdocs-how-tos.html">MkDocs Setup</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#installing-mkdocs">installing mkdocs</a>
     </li>
@@ -85,7 +77,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#building-the-site">building the site</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#deploying-to-github">deploying to github</a>
+    <li class="toctree-l2"><a class="reference internal" href="#initial-deployment-to-github">initial deployment to github</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#create-the-empty-repo-on-github">create the empty repo on github</a>
     </li>
@@ -97,7 +89,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#check-that-site-folder-is-properly-ignored">check that site folder is properly ignored</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#deploy-to-github-pages">deploy to github pages</a>
+    <li class="toctree-l3"><a class="reference internal" href="#deploy-to-github-pages-with-gh-deploy">deploy to github pages with gh-deploy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#automatically-update-the-deployed-site-on-commits-or-merge-to-main">automatically update the deployed site on commits or merge to main</a>
     </li>
         </ul>
     </li>
@@ -114,6 +108,15 @@
     </ul>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">A second heading</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Another Document</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="index.html#add-a-level-2-heading">add a level 2 heading</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
@@ -123,7 +126,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">docs as code setup notes</a>
+        <a href="..">docs as code setup notes</a>
       </nav>
 
       
@@ -131,15 +134,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
       
         
-          <li>Mkdocs howtos &raquo;</li>
+          <li>Just a heading &raquo;</li>
         
       
     
-    <li>mkdocs how-tos</li>
+    <li>MkDocs Setup</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -231,7 +234,7 @@ theme:
 <p>we can now use <code>mkdocs build</code> to create the actual html static site. As a result of this command we get a <strong>site</strong> folder added to our project folder: </p>
 <p><img src="image-20220116173946706.png" alt="image-20220116173946706" style="zoom: 67%;" />  </p>
 <p>The folder structure of docs is retained, except that every markdown file now corresponds to an html file (with the same name):</p>
-<h2 id="deploying-to-github">deploying to github</h2>
+<h2 id="initial-deployment-to-github">initial deployment to github</h2>
 <h3 id="create-the-empty-repo-on-github">create the empty repo on github</h3>
 <p>for this purpose, I created a repository on github called docs-as-code (note, with the dashes rather than the underscores) </p>
 <p><img src="image-20220116184429461.png" alt="image-20220116184429461" style="zoom:50%;" /></p>
@@ -280,7 +283,7 @@ git push
 </code></pre>
 <p>and it does indeed say it's ignoring all the files in site (and in its subdirectories):</p>
 <p><img src="image-20220116192651581.png" alt="image-20220116192651581" style="zoom: 67%;" /></p>
-<h3 id="deploy-to-github-pages">deploy to github pages</h3>
+<h3 id="deploy-to-github-pages-with-gh-deploy">deploy to github pages with gh-deploy</h3>
 <p>now we are ready to try the command that builds the static site with mkdocs and deploys it automaticlally to github pages...</p>
 <pre><code>mkdocs  gh-deploy
 </code></pre>
@@ -291,6 +294,9 @@ git push
 <p><img src="image-20220116201425360.png" alt="image-20220116201425360" style="zoom: 50%;" /></p>
 <p>Once you run <code>mkdocs gh-deploy</code>, what happens is that it creates the <code>gh-pages</code> branch automatically and also tells  github that you do <em>not</em> want to use the jekyll site generator. You end up with a situation like this:</p>
 <p><img src="image-20220116201817745.png" alt="image-20220116201817745" style="zoom: 50%;" />  </p>
+<h3 id="automatically-update-the-deployed-site-on-commits-or-merge-to-main">automatically update the deployed site on commits or merge to main</h3>
+<p>Now you can make changes to the documentation, however to make those changes visible in the deployed site,  you still need to re-run the  <code>mkdocs  gh-deploy</code> command. This article explains how to set up a github Action to do this automatically:</p>
+<p>https://datamattsson.tumblr.com/post/612351271067893760/the-perfect-documentation-storm</p>
 <h2 id="operational-workflow">operational workflow</h2>
 <p>once everything is set up,  the workflow for updating the documentation in this repo is as follows:</p>
 <ul>
@@ -327,8 +333,10 @@ git push
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="index.html" class="btn btn-neutral float-right" title="Another Document">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="index.html" class="btn btn-neutral" title="another file in subfolder"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../index.html" class="btn btn-neutral" title="Welcome"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -354,8 +362,10 @@ git push
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="index.html" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
