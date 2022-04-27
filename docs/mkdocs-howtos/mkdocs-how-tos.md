@@ -306,3 +306,18 @@ nb this was done in Gitlab, not Github, but it's the same thing
    <img src="image-20220427112437189.png" alt="image-20220427112437189" style="zoom:67%;" />
 6. I can also do `git remote show origin ` to check the situation  ![image-20220427113741862](image-20220427113741862.png)
 
+### use -u for pushing the branch, otherwise you can't pull
+
+Problem with the above workflow is that, by pushing the new local branch to origin, it's as if I had cloned in the reverse direction. i.e. I won't be able to pull down changes from origin.  (The above screenshot  reveals this because it says only main is configured for git pull.) In fact, if I try to do a git pull from the branch it tells me :
+
+![image-20220427122249866](image-20220427122249866.png)
+
+You also need to set up the local branch to track the remote branch. An easy way to accomplish this is to use the -u option when you do the git push, i.e
+
+ `git push -u origin <branchname>`  
+
+![image-20220427122013416](image-20220427122013416.png)
+
+Now having done that, a `git remote show origin` command now shows me that the new branch is now configured for git pull.
+
+<img src="image-20220427122546756.png" alt="image-20220427122546756" style="zoom:80%;" />
