@@ -304,4 +304,5 @@ nb this was done in Gitlab, not Github, but it's the same thing
    <img src="image-20220427112132352.png" alt="image-20220427112132352" style="zoom: 67%;" />
 5. This shows that the new branch is now ahead of main
    <img src="image-20220427112437189.png" alt="image-20220427112437189" style="zoom:67%;" />
+6. I can also do `git remote show origin ` to check the situation  ![image-20220427113741862](image-20220427113741862.png)
 
