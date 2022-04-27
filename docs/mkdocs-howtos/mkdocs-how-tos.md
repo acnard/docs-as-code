@@ -288,7 +288,20 @@ Note: do not work in the gh-pages branch. This is just for use by the site gener
 5. When the changes in the branch are done (and all committed), and you want to merge them into the main stream: 
    - first do `git checkout main` to return to the main branch
    - then do `git  merge branchname` : this will bring the changes you made on the branch into your main stream.
-6. Do a `git push` to update the remote. Note that the remote will not know about the branch you created as this was created and merged on the local machine before doing any push. I suppose it would know about it if you did a push while the branch was still unmerged. 
+6. Do a `git push` to update the remote. Note that the remote will not know about the branch you created as this was created and merged on the local machine before doing any push. I suppose it would know about it if you did a push while the branch was still unmerged. (see below)
 
+### what happens if you push a local branch before merging it
 
+nb this was done in Gitlab, not Github, but it's the same thing
+
+1. Locally I create a new branch for my feature/fix with `git branch <branchname>` and switch to it `git checkout <branchname>`. As always the `git branch` command shows me what branches I have, with an asterisk next to the one I'm currently on. 
+   ![image-20220427111449919](image-20220427111449919.png)
+2.  I make my changes (this involves adding and modifying some files)  in the file system, after which a git status tells me I have untracked changes.  So I do a `git add -A` followed by `git commit` to commit my changes to the new branch.
+   ![image-20220427111719431](image-20220427111719431.png)
+3.  At this point, my new branch is all committed but exists only on the local machine. The origin does not know anything about it. If I want to push the unmerged branch to the origin (so it'll be visible on gitlab) I do a `git push origin <branchname>`
+   ![image-20220427111931038](image-20220427111931038.png)
+4. When I do this then on gitlab I can see that there are now two branches, main and the new one I created. If I switch to the new one I can see all my changes, and if I switch to main I can see the files as they were before.
+   <img src="image-20220427112132352.png" alt="image-20220427112132352" style="zoom: 67%;" />
+5. This shows that the new branch is now ahead of main
+   <img src="image-20220427112437189.png" alt="image-20220427112437189" style="zoom:67%;" />
 
